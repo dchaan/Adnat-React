@@ -17,7 +17,7 @@ export const login = user => {
         });
       })
       .catch(err => {
-        let errMsg = err.res ? err.res.data.error : 'Unable to connect';
+        let errMsg = err.response ? err.response.data.error : 'Unable to connect';
         dispatch({
           type: 'LOGIN_ERROR',
           err: errMsg
@@ -43,7 +43,7 @@ export const signup = user => {
         });
       })
       .catch(err => {
-        let errMsg = err.res.data.error;
+        let errMsg = err.response.data.error;
         dispatch({
           type: 'SIGNUP_ERROR',
           err: errMsg
