@@ -7,6 +7,8 @@
     "backend:setup": "cd backend && yarn install"
   },
   "dependencies": {
-    "lodash": "^4.17.21"
+    "axios": "^0.26.1",
+    "lodash": "^4.17.21",
+    "react-router-dom": "^6.2.2"
   }
 }

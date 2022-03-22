@@ -1,13 +1,13 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-import { Link, useHistory } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 const Signup = ({ saveSessionId }) => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [passwordConfirmation, setPasswordConfirmation] = useState("");
-  const history = useHistory();
+  const navigate = useNavigate();
   const saveSession = sessionId => { saveSessionId(sessionId); };
 
   const signup = e => {
@@ -21,7 +21,7 @@ const Signup = ({ saveSessionId }) => {
     .then(res => {
       if (res.data.sessionId) {
         saveSession(res.data.sessionId);
-        history.push('/view-organisations');
+        navigate('/view-organisations');
       }
     });
   }

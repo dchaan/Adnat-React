@@ -1,11 +1,11 @@
 import React, { useState } from "react";
 import axios from "axios";
-import { Link, useHistory } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const Login = ({ saveSessionId }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const history = useHistory();
+  const navigate = useNavigate();
   const saveSession = sessionId => { saveSessionId(sessionId); };
 
   const login = e => {
@@ -17,7 +17,7 @@ const Login = ({ saveSessionId }) => {
     .then(res => {
       if (res.data.sessionId) {
         saveSession(res.data.sessionId);
-        axios.get("/http:localhost:3000/users/me", {
+        axios.get("http://localhost:3000/users/me", {
           headers: {
             "Authorization": res.data.sessionId,
             "Content-Type": "application/json"
@@ -25,9 +25,9 @@ const Login = ({ saveSessionId }) => {
         })
         .then(res => {
           if (res.data.organisationId === null) {
-            history.push("/view-organisations");
+            navigate("/view-organisations");
           } else {
-            history.push(`/view-organisations/${res.data.organisationId}`);
+            navigate(`/view-organisations/${res.data.organisationId}`);
           }
         })
       };
