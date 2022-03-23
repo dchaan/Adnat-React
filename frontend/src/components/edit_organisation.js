@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import NavBar from "./NavBar";
+import Navbar from "./navbar";
 import axios from "axios";
 
 const EditOrganisation = ({ name, sessionId, organisationId }) => {
@@ -53,7 +53,7 @@ const EditOrganisation = ({ name, sessionId, organisationId }) => {
 
   return (
     <div>
-      <NavBar name={name} sessionId={sessionId}></NavBar>
+      <Navbar name={name} sessionId={sessionId}></Navbar>
 
       <h2>Edit Organisation</h2>
       <form onSubmit={updateOrg}>

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import Navbar from "./Navbar";
+import Navbar from "./navbar";
 import axios from 'axios';
 import moment from 'moment';
 

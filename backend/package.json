@@ -12,8 +12,7 @@
     "uuid": "^3.3.2"
   },
   "scripts": {
-    "start": "concurrently \"yarn server\" \"cd ../frontend && yarn start\"",
-    "server": "node index.js"
+    "start": "node index.js"
   },
   "devDependencies": {
     "prettier": "1.16.4"

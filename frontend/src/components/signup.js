@@ -23,7 +23,10 @@ const Signup = ({ saveSessionId }) => {
         saveSession(res.data.sessionId);
         navigate('/view-organisations');
       }
-    });
+    })
+    .catch(err => {
+      console.log(err)
+    })
   }
 
   return (
