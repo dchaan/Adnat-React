@@ -3,6 +3,7 @@ import { BrowserRouter, Route, Routes, Link } from 'react-router-dom';
 import axios from 'axios';
 import Login from './components/login';
 import Signup from './components/signup';
+import ViewOrgs from './components/view_organisations';
 import './App.css';
 
 function App() {
@@ -29,10 +30,11 @@ function App() {
 
   return (
     <BrowserRouter>
-    <Routes>
-        <Route path="/" render={() => (<Login saveSessionId={saveSessionId} ogranisationId={ogranisationId} />)} />
-        <Route path="/signup" render={() => (<Signup saveSessionId={saveSessionId}/>)} />
-    </Routes>
+      <Routes>
+        <Route path="/" element={<Login saveSessionId={saveSessionId} ogranisationId={ogranisationId} exact/>} />
+        <Route path="/signup" element={<Signup saveSessionId={saveSessionId} />} exact />
+        <Route path="/view-organisations" element={<ViewOrgs name={name} sessionId={sessionId} />} exact />
+      </Routes>
     </BrowserRouter>
   )
 

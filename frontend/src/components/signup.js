@@ -27,30 +27,29 @@ const Signup = ({ saveSessionId }) => {
   }
 
   return (
-    <>
+    <div>
       <h2>Signup</h2>
 
       <form onSubmit={signup}>
         <label className="label">Name</label><br/>
-        <input className="input" type="text" name="name" value={name} onChange={e => setName(e.target.value)} placeholder="Name" required></input>
+        <input className="input" type="text" name="name" value={name} onChange={e => setName(e.target.value)} placeholder="Name" required />
         <br/><br/>
         <label className="label">Email</label><br/>
-        <input className="input" type="email" name="email" value={email} onChange={e => setEmail(e.target.value)} placeholder="Email" required></input>
+        <input className="input" type="email" name="email" value={email} onChange={e => setEmail(e.target.value)} placeholder="Email" required />
         <br/><br/>
         <label className="label">Password</label><br/>
-        <input className="input" type="password" value={password} onChange={e => setPassword(e.target.value)} placeholder="6 characters minimum" required></input>
+        <input className="input" type="password" value={password} onChange={e => setPassword(e.target.value)} placeholder="6 characters minimum" required />
         <br/><br/>
         <label className="label">Confirm Password</label><br/>
-        <input className="input" type="password" value={passwordConfirmation} onChange={e => setPasswordConfirmation(e.target.value)} placeholder="Re-Enter password" required>
+        <input className="input" type="password" value={passwordConfirmation} onChange={e => setPasswordConfirmation(e.target.value)} placeholder="Re-Enter password" required />
         <br/><br/>
-        <input type="submit" value="Signup"></input>
-        </input>
+        <input type="submit" value="Signup" />
       </form>
 
       <nav>
         <Link to="/">Login</Link>
       </nav>
-    </>
+    </div>
   )
 }
 
