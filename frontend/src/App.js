@@ -6,6 +6,7 @@ import Signup from './components/signup';
 import Organisations from './components/organisations';
 import './App.css';
 import Organisation from './components/organisation';
+import EditOrganisation from './components/edit_organisation';
 
 function App() {
   const [name, setName] = useState("");
@@ -23,7 +24,7 @@ function App() {
     })
     .then(res => {
       setUserId(res.data.id);
-      setOrganisationId(res.data.ogranisationId);
+      setOrganisationId(res.data.organisationId);
       setName(res.data.name);
 
     })
@@ -35,7 +36,9 @@ function App() {
         <Route path="/" element={<Login saveSessionId={saveSessionId} ogranisationId={organisationId} exact/>} />
         <Route path="/signup" element={<Signup saveSessionId={saveSessionId} />} exact />
         <Route path="/view-organisations" element={<Organisations name={name} sessionId={sessionId} />} exact />
-        <Route path="view-organisations/:id" element={<Organisation name={name} sessionId={sessionId} organisationId={organisationId} />} exact />
+        <Route path="/view-organisations/:id" element={<Organisation name={name} sessionId={sessionId} organisationId={organisationId} />} exact />
+        <Route path="/edit-organsation/:id" element={<EditOrganisation name={name} sessionId={sessionId} organisationId={organisationId} />} exact />
+        
       </Routes>
     </BrowserRouter>
   )
