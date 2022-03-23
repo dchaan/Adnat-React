@@ -1,15 +1,16 @@
 import React, { useEffect, useState } from 'react';
-import { BrowserRouter, Route, Routes, Link } from 'react-router-dom';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import axios from 'axios';
 import Login from './components/login';
 import Signup from './components/signup';
-import ViewOrgs from './components/view_organisations';
+import Organisations from './components/organisations';
 import './App.css';
+import Organisation from './components/organisation';
 
 function App() {
   const [name, setName] = useState("");
   const [userId, setUserId] = useState("");
-  const [ogranisationId, setOrganisationId] = useState("");
+  const [organisationId, setOrganisationId] = useState("");
   const [sessionId, setSessionId] = useState("");
   const saveSessionId = sessionId => { setSessionId(sessionId); };
 
@@ -31,9 +32,10 @@ function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<Login saveSessionId={saveSessionId} ogranisationId={ogranisationId} exact/>} />
+        <Route path="/" element={<Login saveSessionId={saveSessionId} ogranisationId={organisationId} exact/>} />
         <Route path="/signup" element={<Signup saveSessionId={saveSessionId} />} exact />
-        <Route path="/view-organisations" element={<ViewOrgs name={name} sessionId={sessionId} />} exact />
+        <Route path="/view-organisations" element={<Organisations name={name} sessionId={sessionId} />} exact />
+        <Route path="view-organisations/:id" element={<Organisation name={name} sessionId={sessionId} organisationId={organisationId} />} exact />
       </Routes>
     </BrowserRouter>
   )
