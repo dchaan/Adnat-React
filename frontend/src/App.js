@@ -7,6 +7,7 @@ import Organisations from './components/organisations';
 import './App.css';
 import Organisation from './components/organisation';
 import EditOrganisation from './components/edit_organisation';
+import Shifts from './components/shifts';
 
 function App() {
   const [name, setName] = useState("");
@@ -38,7 +39,7 @@ function App() {
         <Route path="/view-organisations" element={<Organisations name={name} sessionId={sessionId} />} exact />
         <Route path="/view-organisations/:id" element={<Organisation name={name} sessionId={sessionId} organisationId={organisationId} />} exact />
         <Route path="/edit-organsation/:id" element={<EditOrganisation name={name} sessionId={sessionId} organisationId={organisationId} />} exact />
-        
+        <Route path="/view-shifts/:id" element={<Shifts name={name} sessionId={sessionId} organsationId={organisationId} userId={userId} />} exact />
       </Routes>
     </BrowserRouter>
   )
