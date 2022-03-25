@@ -4,7 +4,7 @@ import Navbar from "./navbar";
 import axios from "axios";
 
 const Organisations = ({ name, sessionId }) => {
-  const [organisations, setOrganisations] = useState("");
+  const [organisations, setOrganisations] = useState([]);
   const [organisationName, setOrganisatioName] = useState("");
   const [hourlyRate, setHourlyRate] = useState("");
   const navigate = useNavigate();

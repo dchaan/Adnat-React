@@ -1,5 +1,5 @@
 import React from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import axios from "axios";
 
 const Navbar = ({ name, sessionId }) => {
@@ -18,7 +18,7 @@ const Navbar = ({ name, sessionId }) => {
     <>
       <p>
         Logged in as <b>{name}</b><br/>
-        <Link onClick={() => logout()}>Logout</Link>
+        <button className="btn" onClick={logout}>Logout</button>
       </p>
     </>
   );

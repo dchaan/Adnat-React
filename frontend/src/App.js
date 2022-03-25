@@ -27,7 +27,6 @@ function App() {
       setUserId(res.data.id);
       setOrganisationId(res.data.organisationId);
       setName(res.data.name);
-
     })
   });
 
