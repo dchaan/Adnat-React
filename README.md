@@ -1,3 +1,20 @@
+# Project Setup
+
+Navigate to the root of the project and run both commands:
+`yarn backend:setup`
+`yarn frontend:setup`
+<br/>
+
+Run the backend server using `yarn backend:start`
+<br/>
+The backend server will be hosted on http://localhost3000
+<br/>
+
+Run the frontend server using `yarn frontend:start`
+<br/>
+The app will be hosted on http://localhost:3001
+<br/>
+
 # Adnat (React Challenge)
 
 For this challenge you will be writing your own [ReactJS](https://reactjs.org/) [Single Page App](https://en.wikipedia.org/wiki/Single-page_application) which will operate like a front-end for a JSON version of [the Adnat backend challenge](https://github.com/TandaHQ/work-samples/blob/master/adnat%20(backend)). This is a React challenge, and is not strictly design focused, however, if you'd like to build and style your own components, please go right ahead. If you're not interested or comfortable with doing that, there are plenty of component libraries to help you. [Semantic UI](https://semantic-ui.com/) is a good choice. Additionally, feel free to use any additional libraries you find valuable.
