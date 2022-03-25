@@ -34,7 +34,7 @@ const Organisations = ({ name, sessionId }) => {
       headers: headers
     })
     .then(res => {
-      navigate(`view-organisation/${res.data.organisationId}`);
+      navigate(`/view-organisation/${res.data.organisationId}`);
     })
   };
 
@@ -70,7 +70,7 @@ const Organisations = ({ name, sessionId }) => {
         <input className="input" type="text" name="name" value={organisationName} onChange={e => setOrganisatioName(e.target.value)} placeholder="Name" required />
         <br/>
         <label className="label">Hourly Rate: $</label>
-        <input className="input" type="text" name="hourlyRate" value={hourlyRate} onChange={e => setHourlyRate(e.target.value)} placeholder="0" required/>
+        <input className="input" type="number" name="hourlyRate" value={hourlyRate} onChange={e => setHourlyRate(e.target.value)} placeholder="0" required/>
         <br/><br/>
         <input type="submit" value="Create & Join!" />
       </form>
