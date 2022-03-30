@@ -24,7 +24,8 @@ const Shifts = ({ name, sessionId, organsationId, userId }) => {
     let formattedFinish = moment(finish);
     let difference = moment.duration(formattedFinish.diff(formattedStart));
     let totalHours = difference.asHours();
-    return (totalHours - formattedBreak).toFixed(2);
+    let cost = (totalHours - formattedBreak).toFixed(2);
+    return cost > 0 ? cost : 0
   }
 
   const getName = (userDetails, userId) => {

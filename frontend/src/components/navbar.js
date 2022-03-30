@@ -21,7 +21,7 @@ const Navbar = ({ name, sessionId }) => {
   return (
     <>
       <p>
-        Logged in as <b>{name}</b><br/>
+        Logged in as <b>{name}</b>
         <button className="btn" onClick={() => logout()}>Logout</button>
       </p>
     </>

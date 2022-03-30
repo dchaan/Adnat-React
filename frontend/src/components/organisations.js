@@ -58,7 +58,7 @@ const Organisations = ({ name, sessionId }) => {
       <ul>
         {organisations.map((organisation, i) => (
           <li key={i}>
-            {organisation.name}
+            {organisation.name} {" "}
             <Link to={`/edit-organisation/${organisation.id}`}>Edit</Link>
             <button onClick={() => joinOrg(organisation.id)}>Join</button>
           </li>
@@ -68,7 +68,7 @@ const Organisations = ({ name, sessionId }) => {
 
       <h2>Create Organisation</h2>
       <form onSubmit={createAndJoinOrg}>
-        <label className="label">Name:</label>
+        <label className="label">Name: </label>
         <input className="input" type="text" name="name" value={organisationName} onChange={e => setOrganisationName(e.target.value)} placeholder="Name" required />
         <br/>
         <label className="label">Hourly Rate: $</label>

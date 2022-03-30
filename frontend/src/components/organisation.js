@@ -40,7 +40,7 @@ const Organisation = ({ name, sessionId, organisationId }) => {
           <h2>{filteredOrg.name}</h2>
         ))}
 
-      <Link to={`/view-shifts/${organisationId}`}>View Shifts</Link>
+      <Link to={`/view-shifts/${organisationId}`}>View Shifts</Link>{" "}
       <Link to={`/edit-organisation/${organisationId}`}>Edit</Link>
       <button onClick={() => leaveOrg()}>Leave</button>
     </div>
