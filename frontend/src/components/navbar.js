@@ -13,7 +13,6 @@ const Navbar = ({ name, sessionId }) => {
       }
     })
     .then(res => { 
-      console.log(res);
       navigate("/");
     })
   };

@@ -30,6 +30,7 @@ const Shifts = ({ name, sessionId, organsationId, userId }) => {
 
   const getName = (userDetails, userId) => {
     let userData = userDetails.filter(user => user.id === userId);
+    console.log(userData)
     return userData[0].name;
   };
 

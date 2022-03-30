@@ -17,7 +17,6 @@ const Organisation = ({ name, sessionId, organisationId }) => {
       headers: headers
     })
     .then(res => {
-      console.log(res)
       navigate("/view-organisations");
     })
   };
@@ -29,7 +28,7 @@ const Organisation = ({ name, sessionId, organisationId }) => {
     .then(res => {
       setOrganisations(res.data);
     })
-  }, []);
+  });
 
   return(
     <div>

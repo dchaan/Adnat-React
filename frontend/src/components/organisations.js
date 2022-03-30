@@ -21,7 +21,6 @@ const Organisations = ({ name, sessionId }) => {
       headers: headers
     })
     .then(res => {
-      console.log(res);
       navigate(`/view-organisation/${organisationId}`);
     })
   };
@@ -44,7 +43,6 @@ const Organisations = ({ name, sessionId }) => {
       headers: headers
     })
     .then(res => {
-      console.log(res);
       setOrganisations(res.data);
     })
   },[])

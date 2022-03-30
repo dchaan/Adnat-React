@@ -24,7 +24,6 @@ function App() {
       }
     })
     .then(res => {
-      console.log(res);
       setUserId(res.data.id);
       setOrganisationId(res.data.organisationId);
       setName(res.data.name);
@@ -33,7 +32,7 @@ function App() {
 
   return (
     <BrowserRouter>
-      <h1><Link to="/view-organisations">Adnat</Link></h1>
+      <h1><Link to="/">Adnat</Link></h1>
       <Routes>
         <Route path="/" element={<Login saveSessionId={saveSessionId} ogranisationId={organisationId} exact/>} />
         <Route path="/signup" element={<Signup saveSessionId={saveSessionId} />} exact />
