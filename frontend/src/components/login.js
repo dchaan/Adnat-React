@@ -15,6 +15,7 @@ const Login = ({ saveSessionId }) => {
       password: password
     })
     .then(res => {
+      console.log(res)
       if (res.data.sessionId) {
         saveSession(res.data.sessionId);
         axios.get("http://localhost:3000/users/me", {
@@ -24,10 +25,11 @@ const Login = ({ saveSessionId }) => {
           }
         })
         .then(res => {
+          console.log(res);
           if (res.data.organisationId === null) {
             navigate("/view-organisations");
           } else {
-            navigate(`/view-organisations/${res.data.organisationId}`);
+            navigate(`/view-organisation/${res.data.organisationId}`);
           }
         })
       };
@@ -35,7 +37,7 @@ const Login = ({ saveSessionId }) => {
   };
 
   return (
-    <>
+    <div>
       <h2>Login</h2>
 
       <form onSubmit={login}>
@@ -51,7 +53,7 @@ const Login = ({ saveSessionId }) => {
       <nav>
         <Link to="/signup">Don't have an account? Signup!</Link>
       </nav>
-    </>
+    </div>
   );
 }
 

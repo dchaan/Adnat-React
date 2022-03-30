@@ -27,7 +27,7 @@ const Signup = ({ saveSessionId }) => {
     .catch(err => {
       console.log(err)
     })
-  }
+  };
 
   return (
     <div>

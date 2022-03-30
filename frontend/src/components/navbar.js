@@ -4,6 +4,7 @@ import axios from "axios";
 
 const Navbar = ({ name, sessionId }) => {
   const navigate = useNavigate();
+
   const logout = () => {
     axios.delete("http://localhost:3000/auth/logout", {
       headers: {
@@ -11,14 +12,17 @@ const Navbar = ({ name, sessionId }) => {
         "Content-Type": "application/json"
       }
     })
-    .then(res => { navigate("/") })
+    .then(res => { 
+      console.log(res);
+      navigate("/");
+    })
   };
 
   return (
     <>
       <p>
         Logged in as <b>{name}</b><br/>
-        <button className="btn" onClick={logout}>Logout</button>
+        <button className="btn" onClick={() => logout()}>Logout</button>
       </p>
     </>
   );

@@ -6,8 +6,8 @@ import moment from 'moment';
 const Shifts = ({ name, sessionId, organsationId, userId }) => {
   const [orgName, setOrgName] = useState("");
   const [hourlyRate, setHourlyRate] = useState("");
-  const [shifts, setShifts] = useState("");
-  const [userDetails, setUserDetails] = useState("");
+  const [shifts, setShifts] = useState([]);
+  const [userDetails, setUserDetails] = useState([]);
   const [shiftDate, setShiftDate] = useState("");
   const [startTime, setStartTime] = useState("");
   const [finishTime, setFinishTime] = useState("");
@@ -28,22 +28,22 @@ const Shifts = ({ name, sessionId, organsationId, userId }) => {
   }
 
   const getName = (userDetails, userId) => {
-    let user = userDetails.filter(user => user.id === userId);
-    return user[0].name;
+    let userData = userDetails.filter(user => user.id === userId);
+    return userData[0].name;
   };
 
   const getShifts = () => {
-    return shifts.localeCompare(shift => {
+    return shifts.map(shift => {
       const { id, userId, start, finish, breakLength } = shift;
       return (
         <tr key={id}>
           <td>{getName(userDetails, userId)}</td>
-          <td>{moment(start).format("MM/DD/YYY")}</td>
+          <td>{moment(start).format("MM/DD/YYYY")}</td>
           <td>{moment(start).format("hh:mm a")}</td>
           <td>{moment(finish).format("hh:mm a")}</td>
           <td>{breakLength}</td>
           <td>{getHoursWorked(start, finish, breakLength)}</td>
-          <td>{getHoursWorked(start, finish, breakLength) * hourlyRate}</td>
+          <td>${getHoursWorked(start, finish, breakLength) * hourlyRate}</td>
         </tr>
       )
     })
@@ -85,20 +85,20 @@ const Shifts = ({ name, sessionId, organsationId, userId }) => {
     })
     .then(res => {
       setUserDetails(res.data);
-    })
+    });
     axios.get("http://localhost:3000/shifts", {
       headers: headers
     })
     .then(res => {
       setShifts(res.data);
-    })
+    });
     axios.get("http://localhost:3000/organisations", {
       headers: headers
     })
     .then(res => {
       getOrgDetails(res.data);
-    })
-  });
+    });
+  }, []);
 
   return (
     <div>
@@ -126,6 +126,7 @@ const Shifts = ({ name, sessionId, organsationId, userId }) => {
                 <td><input className="input" type="time" name="startTime" value={startTime} onChange={e => setStartTime(e.target.value)} required /></td>
                 <td><input className="input" type="time" name="finishTime" value={finishTime} onChange={e => setFinishTime(e.target.value)} required /></td>
                 <td><input className="input" type="number" name="breakLength" value={breakLength} onChange={e => setBreakLength(e.target.value)} /></td>
+                <td><input type="submit" value="Create Shift"/></td>
             </tr>
           </tbody>
         </table>

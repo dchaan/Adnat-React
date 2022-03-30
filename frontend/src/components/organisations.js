@@ -5,7 +5,7 @@ import axios from "axios";
 
 const Organisations = ({ name, sessionId }) => {
   const [organisations, setOrganisations] = useState([]);
-  const [organisationName, setOrganisatioName] = useState("");
+  const [organisationName, setOrganisationName] = useState("");
   const [hourlyRate, setHourlyRate] = useState("");
   const navigate = useNavigate();
 
@@ -21,7 +21,8 @@ const Organisations = ({ name, sessionId }) => {
       headers: headers
     })
     .then(res => {
-      navigate(`view-organisation/${organisationId}`);
+      console.log(res);
+      navigate(`/view-organisation/${organisationId}`);
     })
   };
 
@@ -39,13 +40,14 @@ const Organisations = ({ name, sessionId }) => {
   };
 
   useEffect(() => {
-    axios.get("http://localhost3000/organisations", {
+    axios.get("http://localhost:3000/organisations", {
       headers: headers
     })
     .then(res => {
+      console.log(res);
       setOrganisations(res.data);
     })
-  })
+  },[])
 
   return (
     <div>
@@ -58,7 +60,7 @@ const Organisations = ({ name, sessionId }) => {
           <li key={i}>
             {organisation.name}
             <Link to={`/edit-organisation/${organisation.id}`}>Edit</Link>
-            <Link onClick={() => joinOrg(organisation.id)}>Join</Link>
+            <button onClick={() => joinOrg(organisation.id)}>Join</button>
           </li>
         ))}
       </ul>
@@ -67,10 +69,10 @@ const Organisations = ({ name, sessionId }) => {
       <h2>Create Organisation</h2>
       <form onSubmit={createAndJoinOrg}>
         <label className="label">Name:</label>
-        <input className="input" type="text" name="name" value={organisationName} onChange={e => setOrganisatioName(e.target.value)} placeholder="Name" required />
+        <input className="input" type="text" name="name" value={organisationName} onChange={e => setOrganisationName(e.target.value)} placeholder="Name" required />
         <br/>
         <label className="label">Hourly Rate: $</label>
-        <input className="input" type="number" name="hourlyRate" value={hourlyRate} onChange={e => setHourlyRate(e.target.value)} placeholder="0" required/>
+        <input className="input" type="number" name="hourlyRate" value={hourlyRate} onChange={e => setHourlyRate(e.target.value)} placeholder="0" required />
         <br/><br/>
         <input type="submit" value="Create & Join!" />
       </form>

@@ -49,7 +49,7 @@ const EditOrganisation = ({ name, sessionId, organisationId }) => {
     .then(res => {
       setOrgDetails(res.data);
     })
-  });
+  },[]);
 
   return (
     <div>
@@ -65,7 +65,7 @@ const EditOrganisation = ({ name, sessionId, organisationId }) => {
         <br/><br/>
         <input type="submit" value="Update" />
         <br/>
-        <Link onClick={deleteOrg()}>Delete</Link>
+        <button onClick={() =>deleteOrg()}>Delete</button>
       </form>
     </div>
   )

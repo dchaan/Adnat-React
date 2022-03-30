@@ -4,10 +4,10 @@ import axios from 'axios';
 import Login from './components/login';
 import Signup from './components/signup';
 import Organisations from './components/organisations';
-import './App.css';
 import Organisation from './components/organisation';
 import EditOrganisation from './components/edit_organisation';
 import Shifts from './components/shifts';
+import './App.css';
 
 function App() {
   const [name, setName] = useState("");
@@ -24,6 +24,7 @@ function App() {
       }
     })
     .then(res => {
+      console.log(res);
       setUserId(res.data.id);
       setOrganisationId(res.data.organisationId);
       setName(res.data.name);
@@ -32,13 +33,13 @@ function App() {
 
   return (
     <BrowserRouter>
-      <h1><Link to="/">Adnat</Link></h1>
+      <h1><Link to="/view-organisations">Adnat</Link></h1>
       <Routes>
         <Route path="/" element={<Login saveSessionId={saveSessionId} ogranisationId={organisationId} exact/>} />
         <Route path="/signup" element={<Signup saveSessionId={saveSessionId} />} exact />
         <Route path="/view-organisations" element={<Organisations name={name} sessionId={sessionId} />} exact />
         <Route path="/view-organisation/:id" element={<Organisation name={name} sessionId={sessionId} organisationId={organisationId} />} exact />
-        <Route path="/edit-organsation/:id" element={<EditOrganisation name={name} sessionId={sessionId} organisationId={organisationId} />} exact />
+        <Route path="/edit-organisation/:id" element={<EditOrganisation name={name} sessionId={sessionId} organisationId={organisationId} />} exact />
         <Route path="/view-shifts/:id" element={<Shifts name={name} sessionId={sessionId} organsationId={organisationId} userId={userId} />} exact />
       </Routes>
     </BrowserRouter>
